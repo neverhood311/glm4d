@@ -21,6 +21,12 @@
 		return vec<4, T, Q>(this->A, this->B, this->C, this->D);			\
 	}
 
+#define GLM_SWIZZLE_GEN_VEC5_ENTRY(T, P, CONST, A, B, C, D, E)					\
+	vec<5, T, Q> A ## B ## C ## D() ## E() CONST								\
+	{																			\
+		return vec<5, T, Q>(this->A, this->B, this->C, this->D, this->E);		\
+	}
+
 #define GLM_SWIZZLE_GEN_VEC2_ENTRY_DEF(T, P, L, CONST, A, B)	\
 	template<typename T>										\
 	vec<L, T, Q> vec<L, T, Q>::A ## B() CONST					\
@@ -40,6 +46,13 @@
 	vec<4, T, Q> vec<L, T, Q>::A ## B ## C ## D() CONST					\
 	{																	\
 		return vec<4, T, Q>(this->A, this->B, this->C, this->D);		\
+	}
+
+#define GLM_SWIZZLE_GEN_VEC5_ENTRY_DEF(T, P, L, CONST, A, B, C, D, E)		\
+	template<typename T>													\
+	vec<5, T, Q> vec<L, T, Q>::A ## B ## C ## D() ## E() CONST				\
+	{																		\
+		return vec<5, T, Q>(this->A, this->B, this->C, this->D, this->E);	\
 	}
 
 #define GLM_MUTABLE
